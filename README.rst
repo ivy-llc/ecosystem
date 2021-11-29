@@ -7,24 +7,15 @@
 .. raw:: html
 
     <br/>
-    <a href="https://pypi.org/project/ivy-ecosystem">
-        <img style="float: left; padding-right: 4px; padding-bottom: 4px;" src="https://badge.fury.io/py/ivy-ecosystem.svg">
-    </a>
-    <a href="https://www.apache.org/licenses/LICENSE-2.0">
-        <img style="float: left; padding-right: 4px; padding-bottom: 4px;" src="https://img.shields.io/pypi/l/ivy-ecosystem">
-    </a>
     <a href="https://github.com/ivy-dl/ecosystem/actions?query=workflow%3Adocs">
         <img style="float: left; padding-right: 4px; padding-bottom: 4px;" src="https://img.shields.io/github/workflow/status/ivy-dl/ecosystem/docs?label=docs">
-    </a>
-    <a href="https://github.com/ivy-dl/ecosystem/actions?query=workflow%3Anightly-tests">
-        <img style="float: left; padding-right: 4px; padding-bottom: 4px;" src="https://img.shields.io/github/workflow/status/ivy-dl/ecosystem/nightly-tests?label=nightly">
     </a>
     <a href="https://discord.gg/EN9YS3QW8w">
         <img style="float: left; padding-right: 4px; padding-bottom: 4px;" src="https://img.shields.io/discord/799879767196958751?color=blue&label=%20&logo=discord&logoColor=white">
     </a>
     <br clear="all" />
 
-**Collection of Third-Part Libraries using Ivy.**
+**Collection of Third-Part Libraries using Ivy to provide multi-framework support.**
 
 .. raw:: html
 
@@ -50,6 +41,12 @@
             <img width="12%" style="float: left;" src="https://raw.githubusercontent.com/ivy-dl/ivy-dl.github.io/master/img/externally_linked/logos/supported/numpy_logo.png">
         </a>
     </div>
+
+Coming Soon!
+--------
+
+**We are currently working with third-party library creators to give them multi-framework support with only a few lines
+of code changed; no need to convert everything to Ivy! More information coming soon!**
 
 Citation
 --------
