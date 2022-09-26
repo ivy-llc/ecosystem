@@ -31,7 +31,7 @@ jobs:
           cd ivy_ecosystem
           rm -rf .gitignore
           cd docs
-          rsync -rav ../../ivy_doc_builder/docs/ .
+          rsync -rav --exclude supported_devices.py ../../ivy_doc_builder/docs/ .
           bash _make_docs.sh --root_dir "../ivy_ecosystem"
           cp .nojekyll build/
           cd ../..
