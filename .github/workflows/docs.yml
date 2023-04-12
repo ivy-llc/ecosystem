@@ -1,26 +1,29 @@
-name: docs
+name: docs_new_repo
 on: [push]
+permissions: 
+  contents: write
 jobs:
   update-docs:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️Ivy Ecosystem
-        uses: actions/checkout@v2
+      - name: Checkout 🛎️ Ivy Ecosystem
+        uses: actions/checkout@v3
         with:
-          path: ivy_ecosystem
+          repository: unifyai/ecosystem
           persist-credentials: false
 
       - name: Build Docs
         run: |
-          cd ivy_ecosystem
           docker run --rm -v "$(pwd)":/project unifyai/doc-builder:latest
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: ivy_ecosystem/docs/build
-          CLEAN: false
-          GIT_CONFIG_NAME: ivy-seed
-          GIT_CONFIG_EMAIL: ivydl.team@gmail.com
+          folder: docs/build
+          target-folder: ecosystem
+          ssh-key: ${{ secrets.SSH_GH_PAGES }}
+          branch: master
+          git-config-name: ivy-seed
+          git-config-email: ivydl.team@gmail.com
+          repository-name: unifyai/docs
+          clean: true
