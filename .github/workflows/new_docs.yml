@@ -6,17 +6,17 @@ on:
       - master
     tags:
       - v*
-  workflow_call:
-    secrets:
-      SSH_GH_PAGES:
-        description: 'SSH key for GitHub Pages deployment'
-        required: true
-    inputs:
-      package-dependencies:
-          description: 'Apt package dependencies'
-          required: false
-          default: ''
-          type: string
+  # workflow_call:
+  #   secrets:
+  #     SSH_GH_PAGES:
+  #       description: 'SSH key for GitHub Pages deployment'
+  #       required: true
+  #   inputs:
+  #     package-dependencies:
+  #         description: 'Apt package dependencies'
+  #         required: false
+  #         default: ''
+  #         type: string
 
 jobs:
   wait-for-others:
@@ -57,7 +57,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           folder: docs
-          target-folder: "${{ inputs.version != 'dev' && format('{0}/', inputs.version) || '' }}${{ github.event.repository.name }}"
+          target-folder: "${{ github.ref_name != 'dev' && format('{0}/', github.ref_name) || '' }}${{ github.event.repository.name }}"
           ssh-key: ${{ secrets.SSH_GH_PAGES }}
           branch: master
           git-config-name: ivy-seed
@@ -70,8 +70,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: wait-for-others
     if: startsWith(github.ref, 'refs/tags')
-    with:
-      version: ${{ github.ref_name }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
@@ -95,7 +93,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           folder: docs
-          target-folder: "${{ inputs.version != 'dev' && format('{0}/', inputs.version) || '' }}${{ github.event.repository.name }}"
+          target-folder: "${{ github.ref_name != 'dev' && format('{0}/', github.ref_name) || '' }}${{ github.event.repository.name }}"
           ssh-key: ${{ secrets.SSH_GH_PAGES }}
           branch: master
           git-config-name: ivy-seed
