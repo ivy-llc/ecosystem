@@ -6,16 +6,17 @@ on:
       - master
     tags:
       - v*
-  secrets:
-    SSH_GH_PAGES:
-      description: 'SSH key for GitHub Pages deployment'
-      required: true
-  inputs:
-    package-dependencies:
-        description: 'Apt package dependencies'
-        required: false
-        default: ''
-        type: string
+  workflow_call:
+    secrets:
+      SSH_GH_PAGES:
+        description: 'SSH key for GitHub Pages deployment'
+        required: true
+    inputs:
+      package-dependencies:
+          description: 'Apt package dependencies'
+          required: false
+          default: ''
+          type: string
 
 jobs:
   wait-for-others:
