@@ -1,0 +1,70 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "*.ipynb"
+    - "!assets/"
+
+website:
+  title: "Ivy Ecosystem"
+  favicon: "assets/img/ivy_logo_only.png"
+
+  page-navigation: true
+
+  navbar:
+    title: false
+    search: true
+    logo: "assets/img/ivy_logo_text.png"
+    logo-href: https://unify.ai
+    left:
+      - text: "Github"
+        href: https://github.com/unifyai/ivy
+      - text: "Docs"
+        href: https://unify.ai/docs/ivy
+      - text: "Discord"
+        href: https://discord.com/invite/sXyFF8tDtm
+
+  sidebar:
+    style: "floating"
+    border: true
+    collapse-level: 1
+    contents:
+      - text: "Home"
+        href: index.qmd      
+      - section: "Docs"
+        contents:
+          - text: "Ivy"
+            href: https://unify.ai/docs/ivy
+          - text: "Ivy Mech"
+            href: https://unify.ai/docs/mech
+          - text: "Ivy Vision"
+            href: https://unify.ai/docs/vision
+          - text: "Ivy Robot"
+            href: https://unify.ai/docs/robot
+          - text: "Ivy Gym"
+            href: https://unify.ai/docs/gym
+          - text: "Ivy Memory"
+            href: https://unify.ai/docs/memory
+          - text: "Ivy Builder"
+            href: https://unify.ai/docs/builder
+          - text: "Ivy Models"
+            href: https://unify.ai/docs/models
+          - text: "Ivy Ecosystem"
+            href: https://unify.ai/docs/ecosystem
+          
+
+format:
+  html:
+    toc: true
+    include-after-body:
+      - file: assets/generate_badges.html
+    theme: assets/css/custom.scss
+    page-layout: full
+    code-overflow: scroll
+    jupyter: python3
+    monobackgroundcolor: "#ffffff"
+    execute:
+      echo: true
+      output: true
+      eval: true

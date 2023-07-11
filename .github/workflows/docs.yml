@@ -1,13 +1,13 @@
-name: Update docs
-on:
-  push:
-    branches:
-      - master
-    tags:
-      - v*
+# name: Update docs
+# on:
+#   push:
+#     branches:
+#       - master
+#     tags:
+#       - v*
 
-jobs:
-  update-docs:
-    name: Update docs
-    uses: unifyai/workflows/.github/workflows/docs.yml@master
-    secrets: inherit
+# jobs:
+#   update-docs:
+#     name: Update docs
+#     uses: unifyai/workflows/.github/workflows/docs.yml@master
+#     secrets: inherit
